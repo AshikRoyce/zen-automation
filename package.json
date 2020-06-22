@@ -16,5 +16,20 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
-  }
+  },
+  "description": "",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AshikRoyce/zen-automation.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "Ashik <ashikroyce@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AshikRoyce/zen-automation/issues"
+  },
+  "homepage": "https://github.com/AshikRoyce/zen-automation#readme"
 }
