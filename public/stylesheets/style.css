@@ -10,19 +10,3 @@ body {
 a {
   color: #00b7ff;
 }
-
-.flex {
-  display: flex;
-}
-
-.row {
-  flex-direction: row;
-}
-
-.column {
-  flex-direction: column;
-}
-
-.W50-P {
-  width: 50%;
-}

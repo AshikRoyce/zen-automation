@@ -5,93 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>React Editor</title>
 
-    <!-- <script
+    <!-- React dependency -->
+    <script
       crossorigin
       src="https://unpkg.com/react@16/umd/react.production.min.js"
     ></script>
     <script
       crossorigin
       src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
-    ></script> -->
-    <script
-      crossorigin
-      src="https://unpkg.com/react@16/umd/react.development.js"
-    ></script>
-    <script
-      crossorigin
-      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
     ></script>
 
+    <!-- JSX dependency -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <link rel="stylesheet" href="../stylesheets/style.css" />
+    <!-- Codemirror css dependency -->
+    <!-- <link rel="stylesheet" href="../plugin/codemirror/lib/codemirror.css" /> -->
   </head>
-  <style>
-    .header-root {
-      width: 100%;
-      height: 75px;
-    }
-    .border-matters {
-      margin: 10px;
-      border: 1px solid black;
-    }
-    .editor-root {
-      align-items: stretch;
-    }
-    .editor-box {
-      height: 725px;
-    }
-    .output-box {
-      height: 725px;
-    }
-    .browser-output {
-      height: 350px;
-    }
-    .console-output {
-      height: 350px;
-    }
-  </style>
+
   <body>
     <div id="root"></div>
 
-    <script type="text/babel">
-      const HeaderComponent = ({}) => {
-        return (
-          <div className="header-root">
-            <div className="border-matters"></div>
-          </div>
-        );
-      };
-      const EditorComponent = ({}) => {
-        return (
-          <div className="editor-root">
-            <div className="flex row">
-              <div className="editor-box W50-P">
-                <div className="border-matters"></div>
-              </div>
-              <div className="output-box W50-P">
-                <div className="flex column">
-                  <div className="browser-output">
-                    <div className="border-matters"></div>
-                  </div>
-                  <div className="console-output">
-                    <div className="border-matters"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-      };
-      const App = () => {
-        return (
-          <div className="container flex column">
-            <HeaderComponent />
-            <EditorComponent />
-          </div>
-        );
-      };
-      ReactDOM.render(<App />, document.getElementById("root"));
-    </script>
+    <div id="container">
+      <button onclick="runJs()">Run</button>
+      <textarea class="codemirror-textarea"></textarea>
+    </div>
+
+    <!-- Jquery dependency -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Codemirror dependency -->
+    <!-- <script src="../plugin/codemirror/lib/codemirror.js"></script>
+    <script src="../plugins/codemirror/mode/javascript/javascript.js"></script> -->
+
+    <!-- Custom JS -->
+    <script src="../javascripts/react-editor.js"></script>
   </body>
 </html>
