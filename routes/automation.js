@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-/* GET home page. */
+/* Automation route. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Server running successfully" });
+  res.render("index", { title: "Automation" });
 });
 
 module.exports = router;
