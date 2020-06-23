@@ -19,14 +19,17 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <!-- Codemirror css dependency -->
-    <!-- <link rel="stylesheet" href="../plugin/codemirror/lib/codemirror.css" /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/codemirror@5.55.0/lib/codemirror.css"
+    />
   </head>
 
   <body>
     <div id="root"></div>
 
     <div id="container">
-      <button onclick="runJs()">Run</button>
+      <button onclick="runnning()">Run</button>
       <textarea class="codemirror-textarea"></textarea>
     </div>
 
@@ -34,8 +37,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!-- Codemirror dependency -->
-    <!-- <script src="../plugin/codemirror/lib/codemirror.js"></script>
-    <script src="../plugins/codemirror/mode/javascript/javascript.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.55.0/lib/codemirror.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.55.0/mode/javascript/javascript.js"></script>
 
     <!-- Custom JS -->
     <script src="../javascripts/react-editor.js"></script>
