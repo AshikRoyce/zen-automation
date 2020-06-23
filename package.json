@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "serve": "nodemon ./bin/www"
+    "serve": "nodemon ./bin/www",
+    "test": "jest"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -12,9 +13,13 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
-    "morgan": "~1.9.1"
+    "jest": "^26.0.1",
+    "morgan": "~1.9.1",
+    "puppeteer": "^4.0.0",
+    "shelljs": "^0.8.4"
   },
   "devDependencies": {
+    "eslint": "^7.3.1",
     "nodemon": "^2.0.4"
   },
   "description": "",
@@ -31,5 +36,35 @@
   "bugs": {
     "url": "https://github.com/AshikRoyce/zen-automation/issues"
   },
-  "homepage": "https://github.com/AshikRoyce/zen-automation#readme"
+  "homepage": "https://github.com/AshikRoyce/zen-automation#readme",
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2020": true,
+      "node": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 11,
+      "sourceType": "module"
+    },
+    "rules": {
+      "indent": [
+        "error",
+        4
+      ],
+      "linebreak-style": [
+        "error",
+        "unix"
+      ],
+      "quotes": [
+        "error",
+        "double"
+      ],
+      "semi": [
+        "error",
+        "never"
+      ]
+    }
+  }
 }
