@@ -13,21 +13,13 @@ router.get("/", function (req, res, next) {
 router.post("/gitclone", async (req, res) => {
   if (req.body) {
     var temp = [];
+    await shell.cd("clones");
     await shell.exec(`git clone ${req.body.url} result`);
-    const functions = require(`./result/functions`);
-    expect(functions.add(2, 2)).toBe(4);
-    expect(functions.sub(5, 7)).toBe(-2);
-    function expect(val) {
-      return {
-        toBe(val1) {
-          if (val == val1) {
-            temp.push({ result: "Test case passed" });
-          } else {
-            temp.push({ result: "Test case failed" });
-          }
-        },
-      };
-    }
+
+    const functions = require(`../clones/result/functions`);
+    const expect = require(`../src/expect`);
+    temp.push(expect(functions.add(2, 2)).toBe(4));
+    temp.push(expect(functions.sub(5, 7)).toBe(-2));
     shell.rm("-rf", "result");
     res.status(200).json({
       message: temp,
@@ -41,7 +33,7 @@ router.post("/gitclone", async (req, res) => {
 
 router.post("/screenshot", async (req, res) => {
   if (req.body) {
-    async function callme(w, h, path) {
+    async function create(w, h, path) {
       const browser = await puppy.launch({
         defaultViewport: {
           width: w,
@@ -61,9 +53,9 @@ router.post("/screenshot", async (req, res) => {
 
     let path = req.body.url;
     path = path.slice(path.indexOf("//") + 2, path.indexOf(".netlify"));
-    callme(375, 667, path + "_iphone");
-    callme(768, 1024, path + "_ipad");
-    callme(1280, 1024, path + "_desktop");
+    create(375, 667, path + "_iphone");
+    create(768, 1024, path + "_ipad");
+    create(1280, 1024, path + "_desktop");
 
     res.status(200).json({
       message: "success",
