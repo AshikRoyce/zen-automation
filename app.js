@@ -7,6 +7,7 @@ const logger = require("morgan");
 const indexRouter = require("./routes/index");
 const automationRouter = require("./routes/automation");
 const reactEditor = require("./routes/reactEditor");
+const javasriptEditor = require("./routes/javasriptEditor");
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/automation", automationRouter);
 app.use("/react-editor", reactEditor);
+app.use("/js-editor", javasriptEditor);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
