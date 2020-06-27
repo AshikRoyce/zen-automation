@@ -19,5 +19,12 @@ $(document).ready(function () {
 
 const runnning = () => {
   const editor = editorState.getEditor();
-  console.log(editor.getValue());
+  const runScript = document.getElementById("runScript");
+
+  runScript.innerHTML = "";
+
+  const scriptTag = document.createElement("script");
+  // scriptTag.setAttribute("type", "text/babel");
+  scriptTag.innerHTML = editor.getValue();
+  runScript.appendChild(scriptTag);
 };
