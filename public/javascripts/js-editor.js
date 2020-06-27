@@ -7,6 +7,7 @@ class Editor {
     return this.editor;
   }
 }
+
 class Question {
   constructor(questions) {
     this.page = 0;
@@ -78,7 +79,6 @@ window.onload = async () => {
   );
   var respoceJson = await responce.json();
   myQuestions = new Question(respoceJson);
-  //console.log(respoceJson);
   let dropDown = document.getElementById("topics");
   myQuestions.getTopics().forEach((topic) => {
     let option = document.createElement("option");
