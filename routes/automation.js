@@ -7,7 +7,7 @@ const fs = require("fs");
 
 /* Automation route. */
 router.get("/", function (req, res, next) {
-  res.sendFile(path.join(__dirname, "../public/html/sample.html"));
+  res.sendFile(path.join(__dirname, "../public/html/automation.html"));
 });
 
 router.post("/gitclone", async (req, res) => {
