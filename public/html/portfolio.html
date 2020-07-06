@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>automation</title>
+  </head>
+  <style>
+    .container_image {
+      margin: 10px;
+    }
+    .container_image image {
+      border: 1px solid black;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <input id="url-box" />
+      <button onclick="take_sreenshots()">Click</button>
+      <div class="container_images">
+        <div class="container_image container_iphone">
+          <h1>iphone view</h1>
+          <image id="iphone" src="" />
+        </div>
+        <div class="container_image container_ipad">
+          <h1>ipad view</h1>
+          <image id="ipad" src="" />
+        </div>
+        <div class="container_image container_desktop">
+          <h1>desktop view</h1>
+          <image id="desktop" src="" />
+        </div>
+      </div>
+    </div>
+    <script>
+      const domain = "https://zen-automation.herokuapp.com";
+
+      function take_sreenshots() {
+        const url = document.getElementById("url-box").value;
+        if (!url) return;
+        fetch(`${domain}/automation/screenshot`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ url }),
+        })
+          .then((res) => res.json())
+          .then(({ filename }) => {
+            document.getElementById(
+              "iphone"
+            ).src = `${domain}/screenshots/${filename}_iphone.png`;
+            document.getElementById(
+              "ipad"
+            ).src = `${domain}/screenshots/${filename}_ipad.png`;
+            document.getElementById(
+              "desktop"
+            ).src = `${domain}/screenshots/${filename}_desktop.png`;
+          });
+      }
+    </script>
+  </body>
+</html>
