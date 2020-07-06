@@ -16,7 +16,7 @@ router.get("/task/:task_name", function (req, res, next) {
 });
 
 router.post("/screenshot", async (req, res) => {
-  const { url, filename = "invalid_filename" } = req.body;
+  const { url, filename } = req.body;
   async function takeScreenshot(width, height, path) {
     try {
       const browser = await puppy.launch({
